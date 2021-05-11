@@ -20,15 +20,10 @@ def validate(fecha):
         return False
     elif (month in mes31) and (day < 1 or day > 31):
         return False
+    elif (year%4 != 0) and (day < 1 or day > 28):
+        return False
     else:
-        if (year%4 == 0 and year%100==0 and year%400==0) and (day <1 or day >29):
-            return False
-        elif (year%4 == 0) and (day < 1 or day > 29):
-            return False
-        elif day < 1 or day > 28:
-            return False
-        else:
-            return True
+        return True
 
 
 
@@ -49,6 +44,7 @@ groups = dateRegex.search(text)
 date = groups[0]
 
 print(date)
+
 
 if validate(date):
     print(f'La fecha identificada es {date}')
