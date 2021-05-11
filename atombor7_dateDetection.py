@@ -22,6 +22,8 @@ def validate(fecha):
         return False
     elif (year%4 != 0) and (day < 1 or day > 28):
         return False
+    elif (year%4 == 0) and (year%100 != 0) and (day < 1 or day > 29) :
+        return False
     else:
         return True
 
