@@ -46,15 +46,22 @@ dateRegex = re.compile(r'''(
 text =str(pyperclip.paste())
 
 groups = dateRegex.search(text)
+print(groups)
 
-date = groups[0]
+if groups != None:
 
-print(date)
+    date = groups[0]
+
+    print(date)
 
 
-if validate(date):
-    print(f'La fecha identificada es {date}')
+    if validate(date):
+        print(f'La fecha identificada es {date}')
+    else:
+        print('Se encontro coincidencia pero no es una fecha valida')
+
 else:
-    print('No se encontro una fecha correcta')
+    print('No se encontro coincidencia con el formato establecido. No hay fecha en el texto')
+
 
 #pyperclip.copy(str(matches))
