@@ -16,10 +16,17 @@ def validate(fecha):
     mes30 = [4, 6, 11, 9]
     mes31 = [1, 3, 5, 7, 8, 10, 12]
 
-    if (month in mes30) and (day < 1 or day > 30):
-        return False
-    elif (month in mes31) and (day < 1 or day > 31):
-        return False
+    if (month in mes30):
+        if (day < 1 or day > 30):
+            return False
+        else:
+            return True
+
+    elif (month in mes31):
+        if (day < 1 or day > 31):
+            return False
+        return True
+
     elif (year%4 != 0) and (day < 1 or day > 28):
         return False
     elif (year%4 == 0) and (year%100 != 0) and (day < 1 or day > 29) :
