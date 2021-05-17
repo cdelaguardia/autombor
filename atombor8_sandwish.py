@@ -26,3 +26,35 @@ if cheese == 'yes':
     print('\nChoose the cheese type for your sandwish')
     cheese = pyinputplus.inputMenu(cheese_type, numbered = True)
     price+=cheese_price_list[cheese_type.index(cheese)]
+
+print('\nDo you want mayo?')
+mayo = pyinputplus.inputYesNo()
+if mayo == 'yes':
+    price+=1
+
+print('\nDo you want mustard?')
+mustard = pyinputplus.inputYesNo()
+if mustard == 'yes':
+    price+=1
+
+print('\nDo you want letuce?')
+letuce = pyinputplus.inputYesNo()
+if letuce == 'yes':
+    price+=1
+
+print('\nDo you want tomato?')
+tomato = pyinputplus.inputYesNo()
+if tomato == 'yes':
+    price+=1
+
+while True:
+    cantidad = input('\nYa que elegiste el tipo de sandwish, cuanto de estos quieres?\n')
+    cantidad = int(cantidad)
+    if cantidad >0:
+        total_cost=price*cantidad
+        print(f'\nEl costo toal de todo es {total_cost}.')
+        break
+
+    else:
+        print('\nNo me has dicho la cantidad de manera adecuada')
+        continue
